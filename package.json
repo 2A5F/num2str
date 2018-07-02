@@ -1,0 +1,24 @@
+{
+  "name": "num2str",
+  "version": "1.0.0",
+  "description": "Convert numbers to various radix strings",
+  "main": "num2str.js",
+  "author": "CC2A",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CC2A/num2str.git"
+  },
+  "keywords": [
+    "num2str",
+    "number",
+    "string",
+    "Number.protrotype",
+    "radix",
+    "convert"
+  ],
+  "bugs": {
+    "url": "https://github.com/CC2A/num2str/issues"
+  },
+  "homepage": "https://github.com/CC2A/num2str#readme"
+}
