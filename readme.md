@@ -4,7 +4,7 @@ Convert numbers to different radix
 ## Api
 
 **toStringN(radix: number) -> string**  
-- *`radix` < 128 or `radix` > 2*
+- *`radix` < 512 or `radix` > 2*
 ```javascript
 Math.PI.toStringN(36)
 "3.53i5ab8p5fc"
@@ -16,13 +16,16 @@ Math.PI.toStringN(64)
 "3.93ZGy8mz"
 
 Math.PI.toStringN(128)
-"3.ifψE%m&"
+"3.ifႠE(m/"
 
 (123456789).toStringN(62)
 "8m0Kx"
 
 (123456789).toStringN(123)
-"#Gx÷"
+"&GxⅤ"
+
+(123456789).toStringN(256)
+"7Ⅵᛚl"
 ```
 
 **toString2 -> string**  
@@ -71,5 +74,17 @@ Math.PI.toStringN(128)
 *== toStringN(128)*
 ```javascript
 (123456789).toString128()
-"W∩ql"
+"WႢql"
+```
+**toString256 -> string**  
+*== toStringN(256)*
+```javascript
+(123456789).toString256()
+"7Ⅵᛚl"
+```
+**toString512 -> string**  
+*== toStringN(512)*
+```javascript
+(123456789).toString512()
+"䷖䷦ᛗ"
 ```

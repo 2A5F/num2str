@@ -1,80 +1,54 @@
 (() => {
     const numsys = (() => {
-        const sys = {}
+        const sys = []
         for (let i = 0; i < 36; i++) {
             sys[i] = i.toString(36)
         }
         for (let i = 10; i < 36; i++) {
             sys[i + 26] = i.toString(36).toUpperCase()
         }
-        sys[62] = '<'
-        sys[63] = '>'
-        sys[64] = '!'
-        sys[65] = '@'
-        sys[66] = '#'
-        sys[67] = '$'
-        sys[68] = '%'
-        sys[69] = '^'
-        sys[70] = '&'
-        sys[71] = '*'
-        sys[73] = '?'
-        sys[74] = '['
-        sys[75] = ']'
-        sys[76] = '{'
-        sys[77] = '}'
-        sys[78] = '_'
-        sys[79] = '~'
-        sys[80] = '|'
-        sys[81] = '/'
-        sys[82] = '\\'
-        sys[83] = ':'
-        sys[84] = ";"
-        sys[85] = '('
-        sys[86] = ')'
-        sys[87] = '﹢'
-        sys[88] = '﹣'
-        sys[89] = '·'
-        sys[90] = '÷'
-        sys[91] = 'Ⅰ'
-        sys[92] = 'Ⅱ'
-        sys[93] = 'Ⅲ'
-        sys[94] = 'Ⅳ'
-        sys[95] = 'Ⅴ'
-        sys[96] = 'Ⅵ'
-        sys[97] = 'Ⅶ'
-        sys[98] = 'Ⅷ'
-        sys[99] = 'Ⅸ'
-        sys[100] = '±'
-        sys[101] = '∅'
-        sys[102] = 'δ'
-        sys[103] = 'ζ'
-        sys[104] = 'λ'
-        sys[105] = 'μ'
-        sys[106] = 'ω'
-        sys[107] = 'ξ'
-        sys[108] = 'φ'
-        sys[109] = 'ψ'
-        sys[110] = '∈'
-        sys[111] = '∩'
-        sys[112] = '∪'
-        sys[113] = '∧'
-        sys[114] = '∨'
-        sys[115] = '∨'
-        sys[116] = '⊕'
-        sys[117] = '⊙'
-        sys[118] = '∫'
-        sys[119] = '∬'
-        sys[120] = '∭'
-        sys[121] = '∮'
-        sys[122] = '∯'
-        sys[123] = '∰'
-        sys[124] = '‰'
-        sys[125] = '♯'
-        sys[126] = '♭'
-        sys[127] = '♮'
-        sys[128] = '⑨'
+        sys.push(
+            '!',
+            '#',
+            '$',
+            '%',
+            '&',
+            '^',
+            '(',
+            ')',
+            '/',
+            '\\',
+            ':',
+            ';',
+            '<',
+            '=',
+            '>',
+            '?',
+            '@',
+            '[',
+            ']',
+            '{',
+            '}',
+            '|',
+            '<',
+            '>',
+        )
+        function addRange(from, to) {
+            for (let i = from; i <= to; i++) {
+                sys.push(String.fromCharCode(i))
+            }
+        }
+        addRange(8544, 8555)
+        addRange(3840, 3850)
+        addRange(4256, 4293)
+        addRange(5792, 5866)
+        addRange(5792, 5866)
+        addRange(9312, 9449)
+        addRange(12258, 12270)
+        addRange(19904, 19967)
         return sys
     })()
+
     function toString2() { return this.toString(2) }
     function toString8() { return this.toString(8) }
     function toString16() { return this.toString(16) }
@@ -118,10 +92,14 @@
     function toString64() { return numsys_2_64(this) }
     const numsys_2_128 = numsys2n(128)
     function toString128() { return numsys_2_128(this) }
+    const numsys_2_256 = numsys2n(256)
+    function toString256() { return numsys_2_256(this) }
+    const numsys_2_512 = numsys2n(512)
+    function toString512() { return numsys_2_512(this) }
 
     function toStringN(radix) {
         if (typeof radix != 'number') return this.toString()
-        if (radix < 2 || radix > 128) throw new RangeError('toStringN() radix argument must be between 2 and 128')
+        if (radix < 2 || radix > numsys.length) throw new RangeError(`toStringN() radix argument must be between 2 and ${numsys.length}`)
         return numsys2n(radix)(this)
     }
 
@@ -134,6 +112,8 @@
         toString62: { value: toString62 },
         toString64: { value: toString64 },
         toString128: { value: toString128 },
+        toString256: { value: toString256 },
+        toString512: { value: toString512 },
         toStringN: { value: toStringN },
     })
 })()
