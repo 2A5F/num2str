@@ -206,3 +206,10 @@ Math.PI.toStringN(128)
 (123456789).toString512()
 "䷖䷦ᛗ"
 ```
+
+## Build
+```PowerShell
+npm i -g typescript rollup
+npm i
+npm run build
+```
