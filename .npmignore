@@ -1,1 +1,7 @@
 test.html
+src/
+tsconfig.json/
+*.map
+tsout/
+rollup.config.js
+rollup.config.*.js
