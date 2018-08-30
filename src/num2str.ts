@@ -134,16 +134,18 @@ export function enablePrototype() {
     isprototype = true
 }
 
-export interface Number {
-    toString2(): string;
-    toString8(): string;
-    toString16(): string;
-    toString32(): string;
-    toString36(): string;
-    toString62(): string;
-    toString64(): string;
-    toString128(): string;
-    toString256(): string;
-    toString512(): string;
-    toStringN(radix?: number): string;
+declare global {
+    interface Number {
+        toString2(): string;
+        toString8(): string;
+        toString16(): string;
+        toString32(): string;
+        toString36(): string;
+        toString62(): string;
+        toString64(): string;
+        toString128(): string;
+        toString256(): string;
+        toString512(): string;
+        toStringN(radix?: number): string;
+    }
 }
