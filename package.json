@@ -12,6 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/CC2A/num2str.git"
   },
+  "types": "./@type/num2str.d.ts",
+  "typings": "./@type/num2str.d.ts",
   "keywords": [
     "num2str",
     "number",
