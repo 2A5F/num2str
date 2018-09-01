@@ -7,6 +7,8 @@ const numsys = (() => {
         sys[i + 26] = i.toString(36).toUpperCase()
     }
     sys.push(
+        '+',
+        '/',
         '!',
         '#',
         '$',
@@ -15,11 +17,9 @@ const numsys = (() => {
         '^',
         '(',
         ')',
-        '/',
         '\\',
         ':',
         ';',
-        '<',
         '=',
         '>',
         '?',
@@ -95,9 +95,16 @@ export function toString256(num: number): string { return numsys_2_256(num) }
 const numsys_2_512 = numsys2n(512)
 export function toString512(num: number): string { return numsys_2_512(num) }
 
-export function toStringN(num: number, radix?: number): string {
+export function toStringN(num: number, radix?: number | '正'): string {
+    if (radix == '正') {
+        const z = parseInt(num / 5 as any)
+        const o = num % 5
+        const m = ['', '﹏', '丄', '上', '止']
+        return `${z == 0 ? '' : '正'}${Array(z).join('正')}${m[o]}`
+    }
     if (typeof radix != 'number') return num.toString()
-    if (radix < 2 || radix > numsys.length) throw new RangeError(`toStringN() radix argument must be between 2 and ${numsys.length}`)
+    if (radix == 1) return `${num == 0 ? '' : '1'}${Array(num).join('1')}`
+    if (radix < 1 || radix > numsys.length) throw new RangeError(`toStringN() radix argument must be between 1 and ${numsys.length} or Eq '正'`)
     return numsys2n(radix)(num)
 }
 

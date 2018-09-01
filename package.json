@@ -1,6 +1,6 @@
 {
   "name": "num2str",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Convert numbers to various radix strings",
   "main": "./num2str.js",
   "author": "CC2A",

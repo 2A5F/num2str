@@ -10,7 +10,7 @@ const numsys = (() => {
     for (let i = 10; i < 36; i++) {
         sys[i + 26] = i.toString(36).toUpperCase();
     }
-    sys.push('!', '#', '$', '%', '&', '^', '(', ')', '/', '\\', ':', ';', '<', '=', '>', '?', '@', '[', ']', '{', '}', '|', '<', '>');
+    sys.push('+', '/', '!', '#', '$', '%', '&', '^', '(', ')', '\\', ':', ';', '=', '>', '?', '@', '[', ']', '{', '}', '|', '<', '>');
     function addRange(from, to) {
         for (let i = from; i <= to; i++) {
             sys.push(String.fromCharCode(i));
@@ -74,10 +74,18 @@ function toString256(num) { return numsys_2_256(num); }
 const numsys_2_512 = numsys2n(512);
 function toString512(num) { return numsys_2_512(num); }
 function toStringN(num, radix) {
+    if (radix == '正') {
+        const z = parseInt(num / 5);
+        const o = num % 5;
+        const m = ['', '﹏', '丄', '上', '止'];
+        return `${z == 0 ? '' : '正'}${Array(z).join('正')}${m[o]}`;
+    }
     if (typeof radix != 'number')
         return num.toString();
-    if (radix < 2 || radix > numsys.length)
-        throw new RangeError(`toStringN() radix argument must be between 2 and ${numsys.length}`);
+    if (radix == 1)
+        return `${num == 0 ? '' : '1'}${Array(num).join('1')}`;
+    if (radix < 1 || radix > numsys.length)
+        throw new RangeError(`toStringN() radix argument must be between 1 and ${numsys.length}`);
     return numsys2n(radix)(num);
 }
 function StoString2() { return this.toString(2); }

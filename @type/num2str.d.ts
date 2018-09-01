@@ -8,7 +8,7 @@ export declare function toString64(num: number): string;
 export declare function toString128(num: number): string;
 export declare function toString256(num: number): string;
 export declare function toString512(num: number): string;
-export declare function toStringN(num: number, radix?: number): string;
+export declare function toStringN(num: number, radix?: number | '正'): string;
 export declare function enablePrototype(): void;
 declare global {
     interface Number {
