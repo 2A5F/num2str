@@ -5,3 +5,4 @@ tsconfig.json/
 tsout/
 rollup.config.js
 rollup.config.*.js
+tsconfig.json
