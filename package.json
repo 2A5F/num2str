@@ -1,19 +1,21 @@
 {
   "name": "num2str",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Convert numbers to various radix strings",
   "main": "./num2str.js",
-  "author": "CC2A",
+  "module": "./num2str.mjs",
+  "umd::main": "./dist/num2str.js",
+  "types": "./@type/num2str.d.ts",
+  "typings": "./@type/num2str.d.ts",
+  "author": "2A5F",
   "license": "MIT",
   "scripts": {
     "build": "tsc && rollup -c rollup.config.cjs.js && rollup -c && rollup -c rollup.config.min.js && rollup -c rollup.config.es.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CC2A/num2str.git"
+    "url": "git+https://github.com/2A5F/num2str.git"
   },
-  "types": "./@type/num2str.d.ts",
-  "typings": "./@type/num2str.d.ts",
   "keywords": [
     "num2str",
     "number",
@@ -23,9 +25,9 @@
     "convert"
   ],
   "bugs": {
-    "url": "https://github.com/CC2A/num2str/issues"
+    "url": "https://github.com/2A5F/num2str/issues"
   },
-  "homepage": "https://github.com/CC2A/num2str#readme",
+  "homepage": "https://github.com/2A5F/num2str#readme",
   "devDependencies": {
     "rollup-plugin-terser": "^1.0.1"
   }
